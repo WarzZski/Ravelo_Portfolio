@@ -1,24 +1,41 @@
-import logo from './logo.svg';
-import './App.css';
+import { BrowserRouter as Router, Routes, Route, Link } from "react-router-dom";
+import Projects from "./pages/Projects";
+import Learning from "./pages/Learnings";
+import Contact from "./pages/Contact";
+import "./App.css";
 
 function App() {
   return (
-    <div className="App">
-      <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
-        <p>
-          Edit <code>src/App.js</code> and save to reload.
-        </p>
-        <a
-          className="App-link"
-          href="https://reactjs.org"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Learn React
-        </a>
-      </header>
-    </div>
+    <Router>
+      <div className="App">
+
+        {/* Hero / Home */}
+        <header className="hero">
+          <h1>UI/UX Enthusiast & Front-End Developer</h1>
+          <p>
+            I am a UI/UX enthusiast and front-end developer focused on building
+            clean, user-friendly interfaces while continuously learning modern
+            web technologies.
+          </p>
+
+          <div className="hero-buttons">
+            <Link to="/projects" className="btn">Projects</Link>
+            <Link to="/learning" className="btn">Learning</Link>
+            <Link to="/contact" className="btn">Contact</Link>
+          </div>
+        </header>
+
+        {/* Routes */}
+        <main>
+          <Routes>
+            <Route path="/projects" element={<Projects />} />
+            <Route path="/learning" element={<Learning />} />
+            <Route path="/contact" element={<Contact />} />
+          </Routes>
+        </main>
+
+      </div>
+    </Router>
   );
 }
 
