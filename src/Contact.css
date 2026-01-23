@@ -1,0 +1,60 @@
+.contact-buttons {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 40px; /* space between buttons */
+  margin-top: 20px;
+  justify-content: left; /* center buttons horizontally */
+}
+
+.contact-buttons button {
+  position: relative;       /* required for :after */
+  appearance: button;
+  background-color: #1899D6;
+  border: solid transparent;
+  border-radius: 16px;
+  border-width: 0 0 4px;
+  box-sizing: border-box;
+  color: #fff1f1;
+  cursor: pointer;
+  display: inline-block;
+  font-size: 15px;
+  font-weight: 700;
+  letter-spacing: 0.8px;
+  line-height: 20px;
+  padding: 13px 24px;
+  text-align: center;
+  text-transform: uppercase;
+  transition: all 0.2s ease, filter 0.2s;
+}
+
+.contact-buttons button:after {
+  content: "";
+  position: absolute;
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: -4px;
+  z-index: -1;
+  border-radius: 16px;
+  border-width: 0 0 4px;
+  border-style: solid;
+  border-color: transparent;
+  background-color: #1CB0F6;
+}
+
+.contact-buttons button:hover:not(:disabled) {
+  filter: brightness(1.1);
+}
+
+.contact-buttons button:active {
+  padding-bottom: 10px;
+}
+
+.contact-buttons button:active:after {
+  border-width: 0 0 0px;
+}
+
+.contact {
+  color: #bbc4d1; 
+  margin-bottom: 20px;
+}
