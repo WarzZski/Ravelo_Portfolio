@@ -1,59 +1,81 @@
-.contact-buttons {
-  display: flex;
-  flex-wrap: wrap;
-  gap: 40px; /* space between buttons */
-  margin-top: 20px;
-  justify-content: left; /* center buttons horizontally */
+
+.modern-contact {
+  background: linear-gradient(135deg, #181c24 60%, #3b82f6 100%);
+  padding: 48px 40px 40px 40px;
+  margin: 40px auto;
+  border-radius: 24px;
+  box-shadow: 0 8px 32px rgba(0,0,0,0.18);
+  width: 100%;
+  max-width: 700px;
+  color: #fff;
 }
 
-.contact-buttons button {
-  position: relative;       /* required for :after */
-  appearance: button;
-  background-color: #1899D6;
-  border: solid transparent;
-  border-radius: 16px;
-  border-width: 0 0 4px;
-  box-sizing: border-box;
-  color: #fff1f1;
-  cursor: pointer;
-  display: inline-block;
-  font-size: 15px;
+.contact-title {
+  font-size: 2.6rem;
   font-weight: 700;
-  letter-spacing: 0.8px;
-  line-height: 20px;
-  padding: 13px 24px;
-  text-align: center;
-  text-transform: uppercase;
-  transition: all 0.2s ease, filter 0.2s;
+  margin-bottom: 18px;
+  color: #fff;
+  letter-spacing: 1px;
+  text-align: left;
+}
+
+.contact-description {
+  font-size: 1.18rem;
+  line-height: 1.8;
+  color: #e0e6ed;
+  margin-bottom: 28px;
+  max-width: 600px;
   font-family: 'Montserrat', sans-serif;
 }
 
-.contact-buttons button:after {
-  content: "";
-  position: absolute;
-  top: 0;
-  left: 0;
-  right: 0;
-  bottom: -4px;
-  z-index: -1;
+.contact-buttons {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 32px;
+  margin-top: 20px;
+  justify-content: left;
+}
+
+.contact-btn {
+  position: relative;
+  appearance: button;
+  background: linear-gradient(135deg, #3b82f6 60%, #2563eb 100%);
+  border: none;
   border-radius: 16px;
-  border-width: 0 0 4px;
-  border-style: solid;
-  border-color: transparent;
-  background-color: #1CB0F6;
+  box-sizing: border-box;
+  color: #fff;
+  cursor: pointer;
+  display: flex;
+  align-items: center;
+  font-size: 1.1rem;
+  font-weight: 700;
+  letter-spacing: 0.8px;
+  line-height: 1.4;
+  padding: 16px 32px;
+  text-align: left;
+  text-transform: none;
+  transition: transform 0.2s, box-shadow 0.2s, background 0.2s;
+  font-family: 'Montserrat', sans-serif;
+  box-shadow: 0 2px 8px rgba(59,130,246,0.08);
+  margin-bottom: 0;
 }
 
-.contact-buttons button:hover:not(:disabled) {
-  filter: brightness(1.1);
+.contact-btn:hover:not(:disabled) {
+  transform: translateY(-2px) scale(1.04);
+  background: linear-gradient(135deg, #2563eb 60%, #3b82f6 100%);
+  box-shadow: none;
 }
 
-.contact-buttons button:active {
-  padding-bottom: 10px;
+.contact-btn:active {
+  transform: scale(0.98);
 }
 
-.contact-buttons button:active:after {
-  border-width: 0 0 0px;
+.contact-icon {
+  font-size: 1.5rem;
+  margin-right: 12px;
 }
+
+
 
 .contact {
   color: #bbc4d1; 
