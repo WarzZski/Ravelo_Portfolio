@@ -25,6 +25,7 @@
   text-align: center;
   text-transform: uppercase;
   transition: all 0.2s ease, filter 0.2s;
+  font-family: 'Montserrat', sans-serif;
 }
 
 .contact-buttons button:after {

@@ -1,31 +1,27 @@
+
 function Learning() {
   return (
     <div className="container">
-      <section className="learning">
-        <h2>Currently Learning</h2>
-
+      <section className="learning modern-learning">
+        <h2 className="learning-title">Currently Learning</h2>
         <p className="learning-description">
-          I am constantly sharpening my skills to build modern, 
-          responsive, and accessible web applications. Currently, I am 
-          focusing on these essential topics to enhance my frontend 
-          development and design expertise:
+          <span className="learning-accent">Always Growing:</span> I am constantly sharpening my skills to build modern, responsive, and accessible web applications. Here are the topics I’m focused on right now:
         </p>
-
         <ul className="learning-list">
           <li data-tooltip="React is used for building interactive UIs and managing state efficiently.">
-            React fundamentals
+            <span className="learning-icon">⚛️</span> React fundamentals
           </li>
           <li data-tooltip="Learn to design interfaces that are intuitive and user-friendly.">
-            UI/UX design principles
+            <span className="learning-icon">🎨</span> UI/UX design principles
           </li>
           <li data-tooltip="Creating layouts that work perfectly on all screen sizes.">
-            Responsive web design
+            <span className="learning-icon">📱</span> Responsive web design
           </li>
           <li data-tooltip="Mastering Flexbox & Grid to build complex layouts with ease.">
-            CSS Flexbox & Grid
+            <span className="learning-icon">🧩</span> CSS Flexbox & Grid
           </li>
           <li data-tooltip="Making websites accessible to all users, including those with disabilities.">
-            Basic web accessibility
+            <span className="learning-icon">♿</span> Basic web accessibility
           </li>
         </ul>
       </section>
