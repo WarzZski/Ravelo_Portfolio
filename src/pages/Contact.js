@@ -6,17 +6,21 @@ function Contact() {
     const sender = e.target.email.value;
     const subject = e.target.subject.value;
     const description = e.target.description.value;
+    // Send via Formspree (no backend). Set REACT_APP_FORMSPREE_ENDPOINT in your env or replace below.
+    const FORMSPREE_ENDPOINT = process.env.REACT_APP_FORMSPREE_ENDPOINT || 'https://formspree.io/f/mvzbdool';
 
-    // POST to serverless endpoint which will send the email (requires server SMTP env vars)
-    fetch('/api/send-email', {
+    fetch(FORMSPREE_ENDPOINT, {
       method: 'POST',
       headers: { 'Content-Type': 'application/json' },
-      body: JSON.stringify({ sender, subject, description }),
+      body: JSON.stringify({ email: sender, subject, message: description }),
     })
       .then((r) => {
-        if (!r.ok) throw new Error('send failed');
-        alert('Message sent — thank you!');
-        e.target.reset();
+        if (r.ok) {
+          alert('Message sent — thank you!');
+          e.target.reset();
+        } else {
+          return r.json().then((body) => { throw new Error(body.error || 'send failed'); });
+        }
       })
       .catch((err) => {
         console.error(err);
