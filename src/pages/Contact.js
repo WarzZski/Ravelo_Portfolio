@@ -6,12 +6,22 @@ function Contact() {
     const sender = e.target.email.value;
     const subject = e.target.subject.value;
     const description = e.target.description.value;
-    // Always send to the site owner; include sender in subject and body so it's clear who sent it
-    const recipient = 'gerswin.ravelo@urios.edu.ph';
-    const subjectWithSender = `${sender} - ${subject}`;
-    const bodyWithSender = `Sender: ${sender}\n\n${description}`;
-    const mailUrl = `https://mail.google.com/mail/?view=cm&fs=1&to=${encodeURIComponent(recipient)}&su=${encodeURIComponent(subjectWithSender)}&body=${encodeURIComponent(bodyWithSender)}`;
-    window.open(mailUrl, '_blank');
+
+    // POST to serverless endpoint which will send the email (requires server SMTP env vars)
+    fetch('/api/send-email', {
+      method: 'POST',
+      headers: { 'Content-Type': 'application/json' },
+      body: JSON.stringify({ sender, subject, description }),
+    })
+      .then((r) => {
+        if (!r.ok) throw new Error('send failed');
+        alert('Message sent — thank you!');
+        e.target.reset();
+      })
+      .catch((err) => {
+        console.error(err);
+        alert('Failed to send message. Please try again or email gerswin.ravelo@urios.edu.ph directly.');
+      });
   };
 
   return (
@@ -31,7 +41,7 @@ function Contact() {
           <label htmlFor="description" style={{display: 'block', marginBottom: '6px'}}>Description:</label>
           <textarea id="description" name="description" required rows={4} style={{width: '100%', padding: '10px', borderRadius: '8px', border: '1px solid #ccc'}} />
         </div>
-        <button type="submit" className="contact-btn" style={{marginTop: '8px'}}>Send to Gmail</button>
+        <button type="submit" className="contact-btn" style={{marginTop: '8px'}}>Send Message</button>
       </form>
       <div className="contact-buttons">
         <button
