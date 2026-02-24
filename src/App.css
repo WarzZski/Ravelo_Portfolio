@@ -5,10 +5,10 @@
   box-sizing: border-box;
 }
 
-body {
+html, body {
+  min-height: 100vh;
   font-family: 'Montserrat', sans-serif;
   background-color: #f5f5f5;
-  /*background: url('../src/Pictures/95254.jpg');*/
   background: transparent; /* important for Vanta to show */
   color: #333333;
 }
@@ -16,9 +16,10 @@ body {
 /* App Container – wider and fluid */
 .App {
   width: 90%;
-  max-width: 1400px; /* wider max width */
+  max-width: 1400px;
   margin: 0 auto;
   padding: 0 20px 60px 20px;
+  min-height: 100vh;
 }
 
 /* Top Navigation */
