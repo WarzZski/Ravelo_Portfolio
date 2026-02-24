@@ -3,11 +3,14 @@ function Contact() {
   // Gmail form handler
   const handleSubmit = (e) => {
     e.preventDefault();
-    const email = e.target.email.value;
+    const sender = e.target.email.value;
     const subject = e.target.subject.value;
     const description = e.target.description.value;
-    // Compose Gmail URL
-    const mailUrl = `https://mail.google.com/mail/?view=cm&fs=1&to=${encodeURIComponent(email)}&su=${encodeURIComponent(subject)}&body=${encodeURIComponent(description)}`;
+    // Always send to the site owner; include sender in subject and body so it's clear who sent it
+    const recipient = 'gerswin.ravelo@urios.edu.ph';
+    const subjectWithSender = `${sender} - ${subject}`;
+    const bodyWithSender = `Sender: ${sender}\n\n${description}`;
+    const mailUrl = `https://mail.google.com/mail/?view=cm&fs=1&to=${encodeURIComponent(recipient)}&su=${encodeURIComponent(subjectWithSender)}&body=${encodeURIComponent(bodyWithSender)}`;
     window.open(mailUrl, '_blank');
   };
 
@@ -17,8 +20,8 @@ function Contact() {
       <p className="contact-description">If you’d like to work with me or connect, feel free to reach out:</p>
       <form className="gmail-form" onSubmit={handleSubmit} style={{marginBottom: '32px'}}>
         <div style={{marginBottom: '16px'}}>
-          <label htmlFor="email" style={{display: 'block', marginBottom: '6px'}}>Gmail:</label>
-          <input type="email" id="email" name="email" defaultValue="" required style={{width: '100%', padding: '10px', borderRadius: '8px', border: '1px solid #ccc'}} />
+          <label htmlFor="email" style={{display: 'block', marginBottom: '6px'}}>Your Email (so I know who sent it):</label>
+          <input type="email" id="email" name="email" defaultValue="" required placeholder="you@example.com" style={{width: '100%', padding: '10px', borderRadius: '8px', border: '1px solid #ccc'}} />
         </div>
         <div style={{marginBottom: '16px'}}>
           <label htmlFor="subject" style={{display: 'block', marginBottom: '6px'}}>Subject:</label>
