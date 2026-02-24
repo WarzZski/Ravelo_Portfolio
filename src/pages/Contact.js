@@ -20,7 +20,7 @@ function Contact() {
       <p className="contact-description">If you’d like to work with me or connect, feel free to reach out:</p>
       <form className="gmail-form" onSubmit={handleSubmit} style={{marginBottom: '32px'}}>
         <div style={{marginBottom: '16px'}}>
-          <label htmlFor="email" style={{display: 'block', marginBottom: '6px'}}>Your Email (so I know who sent it):</label>
+          <label htmlFor="email" style={{display: 'block', marginBottom: '6px'}}>Gmail:</label>
           <input type="email" id="email" name="email" defaultValue="" required placeholder="you@example.com" style={{width: '100%', padding: '10px', borderRadius: '8px', border: '1px solid #ccc'}} />
         </div>
         <div style={{marginBottom: '16px'}}>
