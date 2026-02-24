@@ -18,7 +18,7 @@ function Contact() {
       <form className="gmail-form" onSubmit={handleSubmit} style={{marginBottom: '32px'}}>
         <div style={{marginBottom: '16px'}}>
           <label htmlFor="email" style={{display: 'block', marginBottom: '6px'}}>Gmail:</label>
-          <input type="email" id="email" name="email" defaultValue="Gerswin.ravelo@urios.edu.ph" required style={{width: '100%', padding: '10px', borderRadius: '8px', border: '1px solid #ccc'}} />
+          <input type="email" id="email" name="email" defaultValue="" required style={{width: '100%', padding: '10px', borderRadius: '8px', border: '1px solid #ccc'}} />
         </div>
         <div style={{marginBottom: '16px'}}>
           <label htmlFor="subject" style={{display: 'block', marginBottom: '6px'}}>Subject:</label>
